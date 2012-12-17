@@ -15,7 +15,6 @@ class OneToOneVelocityStat
 
   def send(condition = nil)
     timecreated = last_midnight.to_i
-    puts last_midnight
     mpath = metric_path
     mvalue = metric_value timecreated, condition
     mtimestamp = timecreated
