@@ -8,7 +8,7 @@ require 'date'
 require 'Sendit'
 
 class OneToOneVelocityStat
-  def initialize(table, period)
+  def initialize(table, period = 86400)
     @table = table
     @period = period
   end
