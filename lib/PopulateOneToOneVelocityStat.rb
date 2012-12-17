@@ -4,8 +4,9 @@ require 'OneToOneVelocityStat'
 require 'mysql'
 
 class PopulateOneToOneVelocityStat
-  def initialize(table, period = 86400)
+  def initialize(table, type, period = 86400)
     @table = table
+    @type = type
     @period = period
     @db = Mysql.new $statServer, $statUser, $statPwd, $statDb
   end
@@ -15,7 +16,7 @@ class PopulateOneToOneVelocityStat
 
     timecreated = first_timecreated
 
-    velocity_stat = OneToOneVelocityStat.new @table, @period
+    velocity_stat = OneToOneVelocityStat.new @table, @type, @period
 
     while timecreated <= now
       velocity_stat.send(condition, timecreated)

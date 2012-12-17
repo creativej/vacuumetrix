@@ -8,7 +8,7 @@ require 'date'
 require 'Sendit'
 
 class OneToOneVelocityStat
-  def initialize(table, period = 86400)
+  def initialize(table, type, period = 86400)
     @table = table
     @period = period
   end
@@ -58,6 +58,6 @@ class OneToOneVelocityStat
   end
 
   def metric_path
-    "onetoone.#{@table}s.created.velocity"
+    "onetoone.#{@table}s.#{@type}.velocity"
   end
 end
