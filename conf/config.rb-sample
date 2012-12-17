@@ -35,7 +35,14 @@ $gmondport = 8649
 
 ##OpenTSDB You'll need to manually tell tsdb about each top level metric you add like this:
 ## tsdb mkmetric newrelic
-## tsdb mkmetric AWScloudwatch 
+## tsdb mkmetric AWScloudwatch
 #$opentsdbserver = '127.0.0.1'
 $opentsdbserver = ''
 $opentsdbport = 4242
+
+##Stats mysql server
+#$statHost = '127.0.0.1'
+$statHost = ''
+$username = ''
+$password = ''
+$database = ''
