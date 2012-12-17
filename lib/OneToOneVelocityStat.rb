@@ -10,6 +10,13 @@ require 'Sendit'
 class OneToOneVelocityStat
   def initialize(table, type = '', period = 86400)
     @table = table
+
+    if !type.empty?
+      @type = type + '.'
+    else
+      @type = type
+    end
+
     @period = period
   end
 
@@ -58,10 +65,6 @@ class OneToOneVelocityStat
   end
 
   def metric_path
-    if !@type.empty?
-      @type = @type + '.'
-    end
-
     "onetoone.#{@table}s.#{@type}velocity"
   end
 end

@@ -4,14 +4,14 @@ require 'OneToOneVelocityStat'
 require 'mysql'
 
 class PopulateOneToOneVelocityStat
-  def initialize(table, type, period = 86400)
+  def initialize(table, type = '', period = 86400)
     @table = table
     @type = type
     @period = period
     @db = Mysql.new $statServer, $statUser, $statPwd, $statDb
   end
 
-  def execute(condition)
+  def execute(condition = nil)
     now = Time.now.utc.to_i
 
     timecreated = first_timecreated
